@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<orders>
+    <order id="1">
+        <description>First Order of the day</description>
+        <req_date>9-6-2021</req_date>
+        <line_items>
+            <book>
+                <id>1</id>
+                <name>Book1</name>
+                <publish_date>22-05-2007</publish_date>
+                <genre>drama</genre>
+                <authors>
+                    <author id="10">
+                        <bio>description about author10</bio>
+                        <first_name>Khaled</first_name>
+                        <last_name>Hossini</last_name>
+                        <pen_name>pen name</pen_name>
+                    </author>
+                    <author id="12">
+                        <bio> description about author12</bio>
+                        <first_name>Khaled</first_name>
+                        <last_name>Hossini</last_name>
+                    </author>
+                </authors>
+            </book>
+            <book>
+                <id>1</id>
+                <name>Book2</name>
+                <publish_date>22-05-2007</publish_date>
+                <genre>drama</genre>
+                <authors>
+                    <author id="120">
+                        <bio> description about author10</bio>
+                        <first_name>Khaled</first_name>
+                        <last_name>Hossini</last_name>
+                        <pen_name>pen name </pen_name>
+                    </author>
+                </authors>
+            </book>
+            <quantity>1</quantity>
+            <price>500</price>
+        </line_items>
+    </order>
+</orders>

@@ -1,0 +1,72 @@
+<xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+    <xs:element name="orders">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="order">
+                    <xs:complexType>
+                        <xs:sequence>
+                            <xs:element type="xs:string" name="description" />
+                            <xs:element type="xs:string" name="req_date" />
+                            <!-- criteria 1 -->
+                            <xs:element name="line_items" minOccurs="1" maxOccurs="unbounded">
+                                <xs:complexType>
+                                    <xs:sequence>
+                                        <xs:element name="book" maxOccurs="unbounded" minOccurs="0">
+                                            <xs:complexType>
+                                                <xs:sequence>
+                                                    <xs:element type="xs:byte" name="id" />
+                                                    <xs:element type="xs:string" name="name" />
+                                                    <xs:element type="xs:string" name="publish_date" />
+                                                    <xs:element name="genre" >
+                                                        <xs:simpleType>
+                                                            <xs:restriction base="xs:string">
+                                                                <xs:enumeration value="science-fiction"/>
+                                                                <xs:enumeration value="mystery" />
+                                                                <xs:enumeration value="thriller" />
+                                                                <xs:enumeration value="drama" />
+
+                                                            </xs:restriction>
+                                                        </xs:simpleType>
+                                                    </xs:element>
+                                                    <!-- criteria 2 -->
+                                                    <xs:element name="authors" minOccurs="1" maxOccurs="unbounded">
+                                                        <xs:complexType>
+                                                            <xs:sequence>
+                                                                <xs:element name="author" maxOccurs="unbounded" minOccurs="0">
+                                                                    <xs:complexType>
+                                                                        <xs:sequence>
+                                                                            <xs:element type="xs:string" name="bio" />
+                                                                            <xs:element type="xs:string" name="first_name" />
+                                                                            <xs:element type="xs:string" name="last_name" />
+                                                                            <!-- make a pen name optional -->
+                                                                            <xs:element type="xs:string" name="pen_name" minOccurs="0" />
+                                                                        </xs:sequence>
+                                                                        <xs:attribute type="xs:byte" name="id" use="optional" />
+                                                                    </xs:complexType>
+                                                                </xs:element>
+                                                            </xs:sequence>
+                                                        </xs:complexType>
+                                                    </xs:element>
+                                                </xs:sequence>
+                                            </xs:complexType>
+                                        </xs:element>
+                                        <xs:element type="xs:byte" name="quantity" />
+                                        <!-- price criteria -->
+                                        <xs:element name="price">
+                                        <xs:simpleType>
+                                            <xs:restriction base="xs:integer">
+                                                <xs:minInclusive value="0"/>
+                                            </xs:restriction>
+                                        </xs:simpleType>
+                                        </xs:element>
+                                    </xs:sequence>
+                                </xs:complexType>
+                            </xs:element>
+                        </xs:sequence>
+                        <xs:attribute type="xs:byte" name="id" />
+                    </xs:complexType>
+                </xs:element>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+</xs:schema>
